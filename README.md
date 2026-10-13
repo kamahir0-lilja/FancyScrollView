@@ -1,72 +1,57 @@
-﻿# Lilja.FancyScrollView
+# Lilja Fancy Scroll View
 
-Included in the Lilja package series.
+[![license](https://img.shields.io/badge/LICENSE-MIT-green.svg)](LICENSE)
+![unity-version](https://img.shields.io/badge/unity-6000.0+-blue.svg)
 
-## Installation
+Flexible, lightweight scroll view component for Unity UI with cell reuse.
 
-1. Open Package Manager from Window > Package Manager.
-2. Click the "+" button > Add package from git URL.
-3. Enter the following URL:
+---
+
+## 📦 インストール方法
+
+### Package Manager (Git URL)
+
+Unity Editorの **Package Manager > [+] > Add package from git URL...** に以下を入力します：
 
 ```text
-https://github.com/kamahir0/Lilja.git?path=lilja-packages/lilja.fancy-scroll-view/src/Lilja.FancyScrollView
+https://github.com/kamahir0/FancyScrollView.git?path=/Packages/com.kamahir0.fancy-scroll-view
 ```
 
-Alternatively, open "Packages/manifest.json" and add the following to the dependencies block:
+特定のバージョンを指定する場合は、末尾にタグを付加してください（例: `#vcom.kamahir0.fancy-scroll-view`）。
+
+### manifest.json による導入
+
+プロジェクトの `Packages/manifest.json` の `dependencies` に直接追加することも可能です：
 
 ```json
 {
-    "dependencies": {
-        "com.kamahir0.lilja.fancy-scroll-view": "https://github.com/kamahir0/Lilja.git?path=lilja-packages/lilja.fancy-scroll-view/src/Lilja.FancyScrollView"
-    }
+  "dependencies": {
+    "com.kamahir0.fancy-scroll-view": "https://github.com/kamahir0/FancyScrollView.git?path=/Packages/com.kamahir0.fancy-scroll-view"
+  }
 }
 ```
 
-This package is a customized version of [setchi/FancyScrollView](https://github.com/setchi/FancyScrollView) licensed under the MIT License.
+---
 
-The runtime API is intentionally kept close to the original FancyScrollView design: inherit a scroll view class, provide a cell prefab, call `UpdateContents`, and let each cell convert a normalized `0.0` to `1.0` position into its own visual state.
 
-## Differences from the original
 
-- Namespace is `Lilja.FancyScrollView`.
-- `CellPrefab` is typed as `FancyCell<TItemData, TContext>` instead of `GameObject`.
-- `CellPrefab` can reference either a prefab asset or a cell component placed directly in the scene hierarchy.
-- Edit Mode Preview is available in the inspector when a scroll view opts in.
-- The previous Lilja-only public APIs `SetItems`, `RefreshItems`, and `RefreshLayout` are not provided. Use the original-style protected APIs `UpdateContents`, `Refresh`, and `Relayout`.
-- `FancyScrollRect.JumpTo` and `FancyScrollRect.ScrollTo` follow the original design and are protected extension points.
-
-## Cell Template
-
-`CellPrefab` accepts a prefab asset or a hierarchy object. A hierarchy object can be placed under the same Content transform used as the cell container, which is useful when the cell is only used by that scroll view.
-
-When a hierarchy object is used as the template, the template itself is excluded from pooling and hidden automatically at runtime and during Edit Mode Preview. Preview restores the template's original active state when it ends, and only generated preview clones are cleaned up.
-
-## Edit Mode Preview
-
-Preview is opt-in. If a scroll view does not override the preview data hook, the Preview UI is hidden.
+## 📖 基本的な使い方
 
 ```csharp
 using Lilja.FancyScrollView;
-
-class MyScrollView : FancyScrollView<ItemData>
-{
-    [UnityEngine.SerializeField] Cell cellPrefab = default;
-
-    protected override FancyCell<ItemData, NullContext> CellPrefab => cellPrefab;
-
-    protected override bool TryCreatePreviewItem(
-        FancyScrollPreviewItemContext context,
-        out ItemData item)
-    {
-        item = new ItemData($"Cell {context.Index}");
-        return true;
-    }
-}
 ```
 
-`FancyGridView<TItemData>` exposes the same preview hook for flat item data. The grid view groups preview items internally using `startAxisCellCount`.
+---
 
-## License
+## 🛠️ 開発・検証方法
 
-This package is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+本リポジトリ自体が独立したUnityプロジェクトになっています。Unity Hubから本リポジトリのルートフォルダを開くことで、開発および動作確認が可能です。
 
+- 配布対象パッケージ本体: `Packages/com.kamahir0.fancy-scroll-view/` (Embedded Package)
+- 開発・動作検証用コード: `Assets/Development/`
+
+---
+
+## 📄 ライセンス
+
+[MIT License](LICENSE)

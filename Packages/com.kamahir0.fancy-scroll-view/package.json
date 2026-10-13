@@ -1,0 +1,24 @@
+{
+  "name": "com.kamahir0.fancy-scroll-view",
+  "displayName": "Lilja Fancy Scroll View",
+  "version": "0.1.0",
+  "unity": "6000.0",
+  "description": "Flexible, lightweight scroll view component for Unity UI with cell reuse.",
+  "keywords": [
+    "lilja",
+    "fancy-scroll-view",
+    "unity-ui"
+  ],
+  "dependencies": {
+    "com.unity.ugui": "2.0.0"
+  },
+  "author": {
+    "name": "kamahir0",
+    "url": "https://github.com/kamahir0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamahir0/FancyScrollView.git",
+    "directory": "Packages/com.kamahir0.fancy-scroll-view"
+  }
+}

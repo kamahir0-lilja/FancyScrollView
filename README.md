@@ -14,7 +14,7 @@ Flexible, lightweight scroll view component for Unity UI with cell reuse.
 Unity Editorの **Package Manager > [+] > Add package from git URL...** に以下を入力します：
 
 ```text
-https://github.com/kamahir0/FancyScrollView.git?path=/Packages/com.kamahir0.fancy-scroll-view
+https://github.com/kamahir0-lilja/FancyScrollView.git?path=/Packages/com.kamahir0.fancy-scroll-view
 ```
 
 特定のバージョンを指定する場合は、末尾にタグを付加してください（例: `#vcom.kamahir0.fancy-scroll-view`）。
@@ -26,7 +26,7 @@ https://github.com/kamahir0/FancyScrollView.git?path=/Packages/com.kamahir0.fanc
 ```json
 {
   "dependencies": {
-    "com.kamahir0.fancy-scroll-view": "https://github.com/kamahir0/FancyScrollView.git?path=/Packages/com.kamahir0.fancy-scroll-view"
+    "com.kamahir0.fancy-scroll-view": "https://github.com/kamahir0-lilja/FancyScrollView.git?path=/Packages/com.kamahir0.fancy-scroll-view"
   }
 }
 ```
